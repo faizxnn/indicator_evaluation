@@ -3,15 +3,7 @@ import pandas as pd
 from util import get_data
 
 def testPolicy(symbol="JPM", sd=dt.datetime(2008, 1, 1), ed=dt.datetime(2009, 12, 31), sv=100000):
-    """
-    Generates trades for the Theoretically Optimal Strategy.
-
-    :param symbol: Stock symbol (default: JPM).
-    :param sd: Start date.
-    :param ed: End date.
-    :param sv: Starting value of the portfolio.
-    :return: DataFrame of trades.
-    """
+    
     # get stock prices
     prices = get_data([symbol], pd.date_range(sd, ed))
     prices = prices[[symbol]]  # keep only JPM prices

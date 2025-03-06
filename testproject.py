@@ -15,7 +15,7 @@ def main():
 
     # run and plot indicators
     prices = get_data(['JPM'], pd.date_range(dt.datetime(2008, 1, 1), dt.datetime(2009, 12, 31)))
-    prices = prices['JPM']  # Keep only JPM prices
+    prices = prices['JPM'] 
 
     # SMA
     sma = ind.SMA(prices, window=20)
