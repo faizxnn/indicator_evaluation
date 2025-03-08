@@ -7,12 +7,19 @@ def SMA(prices, window=20):
     return prices.rolling(window=window).mean()
 
 def BollingerBands(prices, window=20):
-   # bollinger bands
+
     sma = SMA(prices, window)
+    
+    # rolling sd
     std = prices.rolling(window=window).std()
+    
+    # calculate upper and lower bands
     upper_band = sma + (2 * std)
     lower_band = sma - (2 * std)
+    
+    # Calculate %B (Bollinger Band percentage)
     bb_percent = (prices - lower_band) / (upper_band - lower_band)
+    
     return pd.DataFrame({'Upper Band': upper_band, 'Lower Band': lower_band, '%B': bb_percent})
 
 def RSI(prices, window=14):
